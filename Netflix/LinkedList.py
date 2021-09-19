@@ -16,9 +16,15 @@ class LinkedList:
             return 
         
         current_node = self.head
+
         while current_node.next:
             current_node = current_node.next
         current_node.next = new_node
+
+    def create_linked_list(self, list):
+        for val in list:
+            self.append(val)
+        return
 
     def print_list(self):
         list_holder = []

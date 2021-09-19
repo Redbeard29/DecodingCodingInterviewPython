@@ -17,8 +17,6 @@ def identify_titles(scores):
         
     return increasing or decreasing
 
-
-# Driver code
 movie_ratings = [
     [1,2,2,3],
     [4,5,6,3,4],
