@@ -5,30 +5,40 @@
 #In order to scale, the content search is performed in a distributed fashion. Search results for each country are produced in separate lists. Each member of a 
 #given list is ranked by popularity, with 1 being most popular and popularity decreasing as the rank number increases. We’ll be given n lists that are all sorted 
 #in ascending order of popularity rank. We have to combine these lists into a single list that will be sorted by rank in ascending order, meaning from best to worst. 
-#Keep in mind that the ranks are unique to individual movies and a single rank can be in multiple lists..
+#Keep in mind that the ranks are unique to individual movies and a single rank can be in multiple lists.
 
 from LinkedList import *
 
-def merge_two_countries(headOne, headTwo):
+def mergeTwoCountries(headOne, headTwo):
+    dummy = Node(-1)
+
     p1 = headOne
-    p1Prev = Node(None)
+    prev = dummy
     p2 = headTwo
 
     while p1 and p2:
-        if p1.data < p2.data:
-            p1Prev.next = p1
+        if p1.data <= p2.data:
+            prev.next = p1
             p1 = p1.next
         else:
-            if p1Prev:
-                p1Prev.next = p2
-            p1Prev = p2
+            prev.next = p2
             p2 = p2.next
-            p1Prev.next = p1
+        prev = prev.next
     
-    if p1 is None:
-        p1Prev.next = p2
+    if p1 is not None:
+        prev.next = p1
+    else:
+        prev.next = p2
 
-    return headOne if headOne.data < headTwo.data else headTwo
+    return dummy.next
+
+def mergeAllLists(lists):
+    if len(lists) > 0:
+        result = lists[0]
+        for x in range(1, len(lists)):
+            result = mergeTwoCountries(result, lists[x])
+        return result
+    return
 
 myFirstList = LinkedList()
 mySecondList = LinkedList()
@@ -40,4 +50,7 @@ mySecondList.print_list()
 myThirdList.create_linked_list([25, 56, 66, 72])
 myThirdList.print_list()
 
-print(merge_two_countries(myFirstList.head, mySecondList.head))
+mergeAllLists([myFirstList.head, mySecondList.head, myThirdList.head])
+
+
+myFirstList.print_list()
