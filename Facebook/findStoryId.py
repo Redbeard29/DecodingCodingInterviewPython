@@ -34,5 +34,5 @@ def find_story_id(array, target):
                 
     return -1
 
-print(find_story_id([5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4], 4))
+print(find_story_id([6, 7, 1, 2, 3, 4, 5], 7))
 
