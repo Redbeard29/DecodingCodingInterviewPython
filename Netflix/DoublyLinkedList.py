@@ -30,23 +30,13 @@ class DoublyLinkedList:
         removed = self.tail
         
         removed.prev.next = None
-        removed.prev = None
         self.tail = removed.prev
+        removed.prev = None
 
         self.size -= 1
         return removed
 
-    def get_node(self, val):
-        current_node = self.head
-        while current_node:
-            if current_node.data == val:
-                return current_node
-            else:
-                current_node = current_node.next
-
-    def move_front(self, val):
-        node = self.get_node(val)
-
+    def move_front(self, node):
         if node is None:
             return None
         
@@ -55,6 +45,7 @@ class DoublyLinkedList:
 
         elif node is self.tail:
             node.prev.next = None
+            self.tail = node.prev
 
         else:
             #Remove node from current location
@@ -69,14 +60,15 @@ class DoublyLinkedList:
 
         return node
 
+
     def print_list(self):
         list_holder = []
         current_node = self.head
         
         while current_node:
-            list_holder.append({'current': current_node.data, 
-            'next': current_node.next.data if current_node.next else None, 
-            'prev': current_node.prev.data if current_node.prev else None})
+            list_holder.append({'current': (current_node.data.key, current_node.data.val), 
+            'next': (current_node.next.data.key, current_node.next.data.val) if current_node.next else None, 
+            'prev': (current_node.prev.data.key, current_node.prev.data.val) if current_node.prev else None})
             current_node = current_node.next
         print(list_holder)
 
