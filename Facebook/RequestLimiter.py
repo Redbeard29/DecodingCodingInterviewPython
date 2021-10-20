@@ -1,4 +1,4 @@
-#Facebook is obviously a huge social media platform, and they own a number of other social media platforms, 
+#Facebook is a huge social media platform, and they own a number of other social media platforms, 
 #notably instagram. The majority of the problems in this chapter are related to improving connections between 
 #all of Facebook’s platforms, because this will allow users to share and view content across FB’s platforms, 
 #improving user experience. 
