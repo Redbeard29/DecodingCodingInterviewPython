@@ -14,6 +14,7 @@
 
 def DFS(friends, size_of_square, visited, person):
     for idx in range(size_of_square):
+        print(friends[person][idx])
         if friends[person][idx] and visited[idx] == False:
             if idx != person:
                 visited[idx] = True
