@@ -33,6 +33,5 @@ print("Median age for recommended content: " + str(median_age.find_median()))
 median_age.insert_age(20)
 median_age.insert_age(55)
 median_age.insert_age(30)
-median_age.insert_age(25)
 print("Median age for recommended content: " + str(median_age.find_median()))
     
