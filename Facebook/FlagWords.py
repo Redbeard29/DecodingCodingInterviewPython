@@ -37,3 +37,5 @@ def flag_words(string, dirty_word):
     return True
 
 print(flag_words("moooronnnn", "moron"))
+
+#more efficient solution:
